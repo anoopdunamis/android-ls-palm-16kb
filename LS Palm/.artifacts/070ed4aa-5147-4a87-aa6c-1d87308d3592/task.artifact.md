@@ -1,0 +1,11 @@
+- [x] Sync `tvDBDownload` functionality in `RecognitionActivity.kt`
+    - [x] Initialize listener for `homeBinding.tvDBDownload`
+    - [x] Sync progress updates in `getAttendanceRes`
+    - [x] Sync progress updates in `attendanceDownloaded`
+    - [x] Sync progress updates in `attendanceDownloadFailed`
+    - [x] Sync progress updates in `getPalmRes`
+    - [x] Sync progress updates in `palmDownloaded`
+    - [x] Sync progress updates in `palmDownloadFailed`
+    - [x] Sync restoration in `textViewChangeDownload`
+- [ ] Verify functionality
+- [ ] Create walkthrough

@@ -1,0 +1,12 @@
+- `[x]` Update database version in `URLS.kt`
+- `[x]` Add fields to `Students` data class
+- `[x]` Update `DatabaseHandler.kt`
+    - `[x]` Add key constants
+    - `[x]` Update `CREATE_TABLE_STUDENTS`
+    - `[x]` Update `onUpgrade`
+    - `[x]` Update `addBatchStudents`
+    - `[x]` Update `getStudentByRegNo`
+    - `[x]` Update `searchStudentsByName`
+- `[x]` Update `RecognitionPresenter.kt`
+    - `[x]` Update `getAttendanceDetails` to parse new fields
+- `[x]` Verify changes

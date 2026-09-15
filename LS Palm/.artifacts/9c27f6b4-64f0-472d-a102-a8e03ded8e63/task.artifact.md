@@ -1,0 +1,5 @@
+- `[x]` Refine `RecognitionActivity.kt` implementation
+    - `[x]` Ensure failure sound `kotlinStatic.playPalmFailure()` is triggered on duplicate detection
+    - `[x]` Ensure `addPalmBinding.tvInfoMsg.text` is updated on duplicate detection
+- `[x]` Verify build and logic
+- `[x]` Create walkthrough

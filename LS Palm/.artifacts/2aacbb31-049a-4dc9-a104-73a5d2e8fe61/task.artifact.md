@@ -1,0 +1,3 @@
+- [x] Implement `searchStudentsByName` in `DatabaseHandler.kt`
+- [ ] Verify compilation
+- [ ] Create walkthrough
