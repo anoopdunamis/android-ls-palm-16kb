@@ -142,8 +142,7 @@ open class RecognitionActivity : AppCompatActivity(), RecognitionView, SearchAda
 
     companion object {
         private const val TAG_ENGINE = "PalmEngine"
-        private val REQUEST_PERMISSION = arrayOf(PermissionLists.getCameraPermission(),
-            PermissionLists.getManageExternalStoragePermission())
+        private val REQUEST_PERMISSION = arrayOf(PermissionLists.getCameraPermission())
     }
 
     private val dir: String by lazy {

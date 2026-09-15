@@ -42,8 +42,7 @@ class ServerActivity : AppCompatActivity(), ServerView, ServerDisplayAdapter.Ser
 
     companion object {
         private val REQUEST_PERMISSION = arrayOf(
-            PermissionLists.getCameraPermission(),
-            PermissionLists.getManageExternalStoragePermission()
+            PermissionLists.getCameraPermission()
         )
     }
 
