@@ -2683,30 +2683,29 @@ open class RecognitionActivity : AppCompatActivity(), RecognitionView, SearchAda
                 mNfcAdapter!!.disableForegroundDispatch(c as Activity?)
             }
         }
-        if (num == 1) {
-            if (mNfcAdapter == null) {
+        if (mNfcAdapter == null) {
 
-                homeBinding.btnNfc.text = resources.getString(R.string.nfc)
-                homeBinding.ivNFC.setImageResource(R.drawable.nfc_large_b_w)
-                homeBinding.tvNFC.text = resources.getString(R.string.nfc_not_support_info)
+            homeBinding.btnNfc.text = resources.getString(R.string.nfc)
+            homeBinding.ivNFC.setImageResource(R.drawable.nfc_large_b_w)
+            homeBinding.tvNFC.text = resources.getString(R.string.nfc_not_support_info)
+            homeBinding.llNFC.isEnabled = false
+            homeBinding.tvNFC.isEnabled = false
+        } else {
+
+            if (kotlinStatic.isNfcEnabled(this)) {
+
+                homeBinding.btnNfc.text = resources.getString(R.string.nfc_on)
+                homeBinding.ivNFC.setImageResource(R.drawable.nfc_large)
+                homeBinding.tvNFC.text = resources.getString(R.string.nfc_on_info)
                 homeBinding.llNFC.isEnabled = false
                 homeBinding.tvNFC.isEnabled = false
             } else {
-                if (kotlinStatic.isNfcEnabled(c)) {
 
-                    homeBinding.btnNfc.text = resources.getString(R.string.nfc_on)
-                    homeBinding.ivNFC.setImageResource(R.drawable.nfc_large)
-                    homeBinding.tvNFC.text = resources.getString(R.string.nfc_on_info)
-                    homeBinding.llNFC.isEnabled = false
-                    homeBinding.tvNFC.isEnabled = false
-                } else {
-
-                    homeBinding.btnNfc.text = resources.getString(R.string.nfc_off)
-                    homeBinding.ivNFC.setImageResource(R.drawable.nfc_large_b_w)
-                    homeBinding.tvNFC.text = resources.getString(R.string.nfc_off_info)
-                    homeBinding.llNFC.isEnabled = true
-                    homeBinding.tvNFC.isEnabled = true
-                }
+                homeBinding.btnNfc.text = resources.getString(R.string.nfc_off)
+                homeBinding.ivNFC.setImageResource(R.drawable.nfc_large_b_w)
+                homeBinding.tvNFC.text = resources.getString(R.string.nfc_off_info)
+                homeBinding.llNFC.isEnabled = true
+                homeBinding.tvNFC.isEnabled = true
             }
         }
     }
