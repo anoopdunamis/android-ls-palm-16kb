@@ -482,7 +482,7 @@ open class RecognitionActivity : AppCompatActivity(), RecognitionView, SearchAda
         }
         homeBinding.tvDBDownload.setOnClickListener {
 
-            sharedPref.setPalmDBDownloadedTimeGMT("")
+//            sharedPref.setPalmDBDownloadedTimeGMT("")
             dbDownloadBinding.tvDBDownload.performClick()
         }
 
@@ -2629,6 +2629,7 @@ open class RecognitionActivity : AppCompatActivity(), RecognitionView, SearchAda
                 databaseHandler.resetPalmTable()
                 databaseHandler.resetStudentsTable()
                 databaseHandler.resetAttendanceTable()
+                sharedPref.setPalmDBDownloadedTimeGMT("")
                 gotoLogin()
             }
             logoutDialog.show()
