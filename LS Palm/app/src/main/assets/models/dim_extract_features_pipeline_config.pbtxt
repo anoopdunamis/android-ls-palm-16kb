@@ -4,7 +4,6 @@ operator_info{
 	decision_branches{
 		next_seq:2
 	}
-
 }
 operator_info{
 	seq:2
@@ -39,12 +38,27 @@ operator_info{
 	}
 }
 
-
 operator_info{
 	seq:6
-	operator_type:kPalmRegisterChosenOperator
+	operator_type:kPalmPlaceholderOperator
+	decision_branches{
+		next_seq:1000
+		key_parameters{
+			param_name:"EnableFeatureOutput"
+			value_type:TypeBool
+			bool_value:false
+		}
+	}
 	decision_branches{
 		next_seq:7
+	}
+}
+
+operator_info{
+	seq:7
+	operator_type:kPalmRegisterChosenOperator
+	decision_branches{
+		next_seq:8
 		key_parameters{
 			param_name:"RecogImgMoal"
 			value_type:TypeInt
@@ -52,7 +66,7 @@ operator_info{
 		}
 	}
 	decision_branches{
-		next_seq:8
+		next_seq:9
 		key_parameters{
 			param_name:"RecogImgMoal"
 			value_type:TypeInt
@@ -60,27 +74,60 @@ operator_info{
 		}
 	}
 	decision_branches{
-		next_seq:9
+		next_seq:8
 		key_parameters{
 			param_name:"RecogImgMoal"
 			value_type:TypeInt
 			int_value:3
 		}
 	}
-}
-
-
-operator_info{
-	seq:7
-	operator_type:kPalmIrRecognitionOperator
 	decision_branches{
-		next_seq:1000
+		next_seq:9
+		key_parameters{
+			param_name:"RecogImgMoal"
+			value_type:TypeInt
+			int_value:4
+		}
 	}
+	decision_branches{
+		next_seq:10
+		key_parameters{
+			param_name:"RecogImgMoal"
+			value_type:TypeInt
+			int_value:5
+		}
+	}
+	decision_branches{
+		next_seq:10
+		key_parameters{
+			param_name:"RecogImgMoal"
+			value_type:TypeInt
+			int_value:6
+		}
+	}
+	decision_branches{
+		next_seq:10
+		key_parameters{
+			param_name:"RecogImgMoal"
+			value_type:TypeInt
+			int_value:7
+		}
+	}
+	decision_branches{
+		next_seq:10
+		key_parameters{
+			param_name:"RecogImgMoal"
+			value_type:TypeInt
+			int_value:8
+		}
+	}
+
 }
+
 
 operator_info{
 	seq:8
-	operator_type:kPalmRgbRecognitionOperator
+	operator_type:kPalmIrRecognitionOperator
 	decision_branches{
 		next_seq:1000
 	}
@@ -88,14 +135,22 @@ operator_info{
 
 operator_info{
 	seq:9
-	operator_type:kPalmIrRecognitionOperator
+	operator_type:kPalmRgbRecognitionOperator
 	decision_branches{
-		next_seq:10
+		next_seq:1000
 	}
 }
 
 operator_info{
 	seq:10
+	operator_type:kPalmIrRecognitionOperator
+	decision_branches{
+		next_seq:11
+	}
+}
+
+operator_info{
+	seq:11
 	operator_type:kPalmRgbRecognitionOperator
 	decision_branches{
 		next_seq:1000

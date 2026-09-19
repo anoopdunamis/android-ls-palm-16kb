@@ -1,6 +1,6 @@
-model_path : "./palm_models_1.3.5.bin"
+model_path : "./palm_edge_2.0.4_tnn.pbz"
 compute_configs {
-    model_name: "palm_ae_detection"
+    model_name: "palm_detection@baseline9_yolox_100m_relu_exp21_eval127"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -9,7 +9,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_regression"
+    model_name: "palm_regression@baseline4_mnv4_nano_exp4_eval404"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -18,7 +18,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_ir_liveness"
+    model_name: "palm_liveness@ir_handantispoofing_croppedcenter_mbv4_exp230_211"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -27,7 +27,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_kps"
+    model_name: "palm_liveness@ir_handantispoofing_cropped128_ir_mbv4_w0.5_exp3_148"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -36,7 +36,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_quality"
+    model_name: "palman_kps@exp30_checkpoint_937"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -45,7 +45,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_quality_register"
+    model_name: "palm_quality@ir_baseline26_mnv4_exp15_eval79"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -54,7 +54,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_ir_reliability"
+    model_name: "palm_quality_register@ir_baseline20_mnv4_exp16_eval102"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -63,7 +63,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_ir_register_reliability"
+    model_name: "palm_reliability@ir_baseline9_exp11_eval83"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -72,7 +72,16 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palmprint_ir_recognition@baseline15_exp23_eval151"
+    model_name: "palm_reliability_register@ir_baseline3_exp4_eval106"
+    device_type: DeviceArm
+    thread_num: 4
+    cpu_list: 0
+    cpu_list: 1
+    cpu_list: 2
+    cpu_list: 3
+}
+compute_configs {
+    model_name: "palm_recognition@ir_mbf_exp5_draw@0.9851_0.7290@rank_0_eval_34_backbone"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0

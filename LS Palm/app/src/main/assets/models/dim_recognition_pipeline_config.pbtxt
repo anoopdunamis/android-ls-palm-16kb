@@ -10,11 +10,35 @@ operator_info{
 	seq:2
 	operator_type:kPalmImgNormOperator
 	decision_branches{
-		next_seq:4
+		next_seq:7
 		key_parameters{
 			param_name:"AlgMode"
 			value_type:TypeInt
 			int_value:1
+		}
+	}
+	decision_branches{
+		next_seq:7
+		key_parameters{
+			param_name:"AlgMode"
+			value_type:TypeInt
+			int_value:3
+		}
+	}
+	decision_branches{
+		next_seq:6
+		key_parameters{
+			param_name:"AlgMode"
+			value_type:TypeInt
+			int_value:2
+		}
+	}
+	decision_branches{
+		next_seq:6
+		key_parameters{
+			param_name:"AlgMode"
+			value_type:TypeInt
+			int_value:4
 		}
 	}
 	decision_branches{
@@ -24,6 +48,84 @@ operator_info{
 
 operator_info{
 	seq:3
+	operator_type:kPalmLivenessNormedBiModalOperator
+	decision_branches{
+		next_seq:999
+		key_parameters{
+			param_name:"LivenessNormedScore"
+			value_type:TypeScope
+			scope_value{
+				low_limit:0.0
+				high_limit:0.5
+			}
+		}
+	}
+	decision_branches{
+		next_seq:4
+	}
+}
+
+
+operator_info{
+	seq:4
+	operator_type:kPalmQualityNormedBiModalOperator
+	decision_branches{
+		next_seq:999
+		key_parameters{
+			param_name:"QualityNormedScoreKey"
+			value_type:TypeScope
+			scope_value{
+				low_limit:0.0
+				high_limit:0.5
+			}
+		}
+	}
+	decision_branches{
+		next_seq:5
+	}
+}
+
+
+
+operator_info{
+	seq:5
+	operator_type:kPalmRegisterDrawNormedCenterBiModalOperator
+	decision_branches{
+		next_seq:999
+		key_parameters{
+			param_name:"RegisterDrawNormedCenterBiModalScoreKey"
+			value_type:TypeScope
+			scope_value{
+				low_limit:0.0
+				high_limit:0.5
+			}
+		}
+	}
+	decision_branches{
+		next_seq:7
+		key_parameters{
+			param_name:"AlgMode"
+			value_type:TypeInt
+			int_value:1
+		}
+	}
+	decision_branches{
+		next_seq:7
+		key_parameters{
+			param_name:"AlgMode"
+			value_type:TypeInt
+			int_value:3
+		}
+	}
+	decision_branches{
+		next_seq:6
+	}
+}
+
+
+
+operator_info{
+	seq:6
 	operator_type:kPalmReliabilityRgbOperator
 	decision_branches{
 		next_seq:999
@@ -37,12 +139,28 @@ operator_info{
 		}
 	}
 	decision_branches{
-		next_seq:4
+		next_seq:8
+		key_parameters{
+			param_name:"AlgMode"
+			value_type:TypeInt
+			int_value:2
+		}
+	}
+	decision_branches{
+		next_seq:8
+		key_parameters{
+			param_name:"AlgMode"
+			value_type:TypeInt
+			int_value:4
+		}
+	}
+	decision_branches{
+		next_seq:7
 	}
 }
 
 operator_info{
-	seq:4
+	seq:7
 	operator_type:kPalmReliabilityIrOperator
 	decision_branches{
 		next_seq:999
@@ -56,58 +174,22 @@ operator_info{
 		}
 	}
 	decision_branches{
-		next_seq:5
-	}
-}
-
-operator_info{
-	seq:5
-	operator_type:kPalmRegisterChosenOperator
-	decision_branches{
-		next_seq:6
-		key_parameters{
-			param_name:"RecogImgMoal"
-			value_type:TypeInt
-			int_value:1
-		}
-	}
-	decision_branches{
-		next_seq:7
-		key_parameters{
-			param_name:"RecogImgMoal"
-			value_type:TypeInt
-			int_value:2
-		}
-	}
-	decision_branches{
 		next_seq:8
-		key_parameters{
-			param_name:"RecogImgMoal"
-			value_type:TypeInt
-			int_value:3
-		}
 	}
 }
 
-operator_info{
-	seq:6
-	operator_type:kPalmIrRecognitionOperator
-	decision_branches{
-		next_seq:1000
-	}
-}
-
-operator_info{
-	seq:7
-	operator_type:kPalmRgbRecognitionOperator
-	decision_branches{
-		next_seq:1000
-	}
-}
 
 operator_info{
 	seq:8
-	operator_type:kPalmIrRecognitionOperator
+	operator_type:kPalmPlaceholderOperator
+	decision_branches{
+		next_seq:1000
+		key_parameters{
+			param_name:"EnableFeatureOutput"
+			value_type:TypeBool
+			bool_value:false
+		}
+	}
 	decision_branches{
 		next_seq:9
 	}
@@ -115,6 +197,99 @@ operator_info{
 
 operator_info{
 	seq:9
+	operator_type:kPalmRegisterChosenOperator
+	decision_branches{
+		next_seq:10
+		key_parameters{
+			param_name:"RecogImgMoal"
+			value_type:TypeInt
+			int_value:1
+		}
+	}
+	decision_branches{
+		next_seq:11
+		key_parameters{
+			param_name:"RecogImgMoal"
+			value_type:TypeInt
+			int_value:2
+		}
+	}
+	decision_branches{
+		next_seq:10
+		key_parameters{
+			param_name:"RecogImgMoal"
+			value_type:TypeInt
+			int_value:3
+		}
+	}
+	decision_branches{
+		next_seq:11
+		key_parameters{
+			param_name:"RecogImgMoal"
+			value_type:TypeInt
+			int_value:4
+		}
+	}
+	decision_branches{
+		next_seq:12
+		key_parameters{
+			param_name:"RecogImgMoal"
+			value_type:TypeInt
+			int_value:5
+		}
+	}
+	decision_branches{
+		next_seq:12
+		key_parameters{
+			param_name:"RecogImgMoal"
+			value_type:TypeInt
+			int_value:6
+		}
+	}
+	decision_branches{
+		next_seq:12
+		key_parameters{
+			param_name:"RecogImgMoal"
+			value_type:TypeInt
+			int_value:7
+		}
+	}
+	decision_branches{
+		next_seq:12
+		key_parameters{
+			param_name:"RecogImgMoal"
+			value_type:TypeInt
+			int_value:8
+		}
+	}
+}
+
+operator_info{
+	seq:10
+	operator_type:kPalmIrRecognitionOperator
+	decision_branches{
+		next_seq:1000
+	}
+}
+
+operator_info{
+	seq:11
+	operator_type:kPalmRgbRecognitionOperator
+	decision_branches{
+		next_seq:1000
+	}
+}
+
+operator_info{
+	seq:12
+	operator_type:kPalmIrRecognitionOperator
+	decision_branches{
+		next_seq:13
+	}
+}
+
+operator_info{
+	seq:13
 	operator_type:kPalmRgbRecognitionOperator
 	decision_branches{
 		next_seq:1000

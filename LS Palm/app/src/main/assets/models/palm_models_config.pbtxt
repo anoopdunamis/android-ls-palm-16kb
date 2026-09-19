@@ -1,6 +1,6 @@
-model_path : "./palm_models_1.3.5.bin"
+model_path : "./palm_edge_2.0.4_tnn.pbz"
 compute_configs {
-    model_name: "palm_ae_detection"
+    model_name: "palm_detection@baseline9_yolox_100m_relu_exp21_eval127"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -9,7 +9,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_regression"
+    model_name: "palm_regression@baseline4_mnv4_nano_exp4_eval404"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -18,7 +18,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_ir_liveness"
+    model_name: "palm_liveness@ir_handantispoofing_croppedcenter_mbv4_exp230_211"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -27,7 +27,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_kps"
+    model_name: "palm_liveness@ir_handantispoofing_cropped128_ir_mbv4_w0.5_exp3_148"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -36,7 +36,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_quality"
+    model_name: "palman_kps@exp30_checkpoint_937"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -45,7 +45,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_quality_register"
+    model_name: "palm_quality@ir_baseline26_mnv4_exp15_eval79"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -54,7 +54,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_rgb_liveness"
+    model_name: "palm_quality_register@ir_baseline20_mnv4_exp16_eval102"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -63,7 +63,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_rgb_reliability"
+    model_name: "palm_liveness@rgb_color_gray_exp22_3662@wq5008"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -72,7 +72,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_ir_reliability"
+    model_name: "palm_reliability@rgb_baseline13_exp17_eval32"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -81,7 +81,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_rgb_register_reliability"
+    model_name: "palm_reliability@ir_baseline9_exp11_eval83"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -90,7 +90,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_ir_register_reliability"
+    model_name: "palm_reliability_register@rgb_baseline5_exp5_eval71"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -99,7 +99,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palmprint_ir_recognition@baseline15_exp23_eval151"
+    model_name: "palm_reliability_register@ir_baseline3_exp4_eval106"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -108,7 +108,142 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palmprint_rgb_recognition@baseline11_exp17_eval177"
+    model_name: "palm_recognition@ir_mbf_exp5_draw@0.9851_0.7290@rank_0_eval_34_backbone"
+    device_type: DeviceArm
+    thread_num: 4
+    cpu_list: 0
+    cpu_list: 1
+    cpu_list: 2
+    cpu_list: 3
+}
+compute_configs {
+    model_name: "palm_recognition@rgb_mbf_exp6_draw@0.98728_0.75941@rank_0_eval_136_backbone"
+    device_type: DeviceArm
+    thread_num: 4
+    cpu_list: 0
+    cpu_list: 1
+    cpu_list: 2
+    cpu_list: 3
+}
+compute_configs {
+    model_name: "palm_liveness@bimodal_normed_hand_antispoofing_exp40_192_dual_44+3_1.0_2daug_199"
+    device_type: DeviceArm
+    thread_num: 4
+    cpu_list: 0
+    cpu_list: 1
+    cpu_list: 2
+    cpu_list: 3
+}
+compute_configs {
+    model_name: "palm_liveness@bimodal_cropped_hand_antispoofing_exp41_96crop_dual_44+3_1.0_2daug_337"
+    device_type: DeviceArm
+    thread_num: 4
+    cpu_list: 0
+    cpu_list: 1
+    cpu_list: 2
+    cpu_list: 3
+}
+compute_configs {
+    model_name: "palm_liveness@bimodal_croppedcenter_hand_antispoofing_exp42_48cropcenter_dual_44+3_1.0_2daug_434"
+    device_type: DeviceArm
+    thread_num: 4
+    cpu_list: 0
+    cpu_list: 1
+    cpu_list: 2
+    cpu_list: 3
+}
+
+compute_configs {
+    model_name: "palm_quality@bimodal_normed_hand_register_quality_exp33_224_dual_44+3_0.5_v3curve_112"
+    device_type: DeviceArm
+    thread_num: 4
+    cpu_list: 0
+    cpu_list: 1
+    cpu_list: 2
+    cpu_list: 3
+}
+
+compute_configs {
+    model_name: "palm_quality@bimodal_normed_hand_quality_exp31_224_dual_44+3_0.5_v3curve_71"
+    device_type: DeviceArm
+    thread_num: 4
+    cpu_list: 0
+    cpu_list: 1
+    cpu_list: 2
+    cpu_list: 3
+}
+
+compute_configs {
+    model_name: "palm_phone_quality_register@exp32_eval_1095_backbone"
+    device_type: DeviceArm
+    thread_num: 4
+    cpu_list: 0
+    cpu_list: 1
+    cpu_list: 2
+    cpu_list: 3
+}
+compute_configs {
+    model_name: "palm_phone_register_reliability@baseline26_eval_14"
+    device_type: DeviceArm
+    thread_num: 4
+    cpu_list: 0
+    cpu_list: 1
+    cpu_list: 2
+    cpu_list: 3
+}
+
+compute_configs {
+    model_name: "palm_quality@bimodal_cropped_hand_quality_exp10_128crop_dual_44+3_0.75_2daug_135"
+    device_type: DeviceArm
+    thread_num: 8
+    cpu_list: 0
+    cpu_list: 1
+    cpu_list: 2
+    cpu_list: 3
+}
+
+compute_configs {
+    model_name: "palm_quality@rgb_normed_hand_register_quality_exp1_224_dual_44+3_0.5_v3curve_mixup_75"
+    device_type: DeviceArm
+    thread_num: 8
+    cpu_list: 0
+    cpu_list: 1
+    cpu_list: 2
+    cpu_list: 3
+}
+
+compute_configs {
+    model_name: "palm_draw@bimodal_normed_hand_register_draw_exp10_224_dual_44+3_0.5_v3curve_bimodal_15"
+    device_type: DeviceArm
+    thread_num: 4
+    cpu_list: 0
+    cpu_list: 1
+    cpu_list: 2
+    cpu_list: 3
+}
+
+compute_configs {
+    model_name: "palm_draw@rgb_normed_hand_register_draw_exp11_224_dual_44+3_0.5_v3curve_RGB_34"
+    device_type: DeviceArm
+    thread_num: 4
+    cpu_list: 0
+    cpu_list: 1
+    cpu_list: 2
+    cpu_list: 3
+}
+
+compute_configs {
+    model_name: "palm_draw@rgb_normed_center_hand_register_draw_exp46_224_dual_44+3_0.5_v3curve_RGB_center_48"
+    device_type: DeviceArm
+    thread_num: 4
+    cpu_list: 0
+    cpu_list: 1
+    cpu_list: 2
+    cpu_list: 3
+}
+
+compute_configs {
+    model_name: "palm_draw@bimodal_normed_center_hand_register_draw_exp43_3_224_dual_44+3_0.5_v3curve_bimodal_center_165"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0

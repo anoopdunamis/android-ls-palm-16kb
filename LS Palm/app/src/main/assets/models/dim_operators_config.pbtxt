@@ -3,7 +3,7 @@ model_config_path:"./palm_models_config.pbtxt"
 operator_config{
 	operator_name:"PalmRegressionOperator"
 	inference_name:"InferencePalmRegression"
-	model_name:"palm_regression"
+	model_name:"palm_regression@baseline4_mnv4_nano_exp4_eval404"
 	operator_type:kPalmRegressionOperator
 	need_model:true
 	enable:true
@@ -16,7 +16,7 @@ operator_config{
 operator_config{
 	operator_name:"PalmDetectorOperator"
 	inference_name:"InferencePalmAnchorFreeDetector"
-	model_name:"palm_ae_detection"
+	model_name:"palm_detection@baseline9_yolox_100m_relu_exp21_eval127"
 	operator_type:kPalmDetectorAeOperator
 	need_model:true
 	enable:true
@@ -172,12 +172,16 @@ operator_config{
 	enable:true
 	param_configs{
 		param_name:"RectBoundary"
-		param_int_array{
-			int_array:120
-			int_array:170
-			int_array:600
-			int_array:854
+		param_float_array{
+			float_array:0.125
+			float_array:0.125
+			float_array:0.125
+			float_array:0.125
 		}
+	}
+	param_configs{
+		param_name:"EffectiveArea"
+		param_value:0.082
 	}
 }
 
@@ -188,12 +192,16 @@ operator_config{
 	enable:true
 	param_configs{
 		param_name:"RectBoundary"
-		param_int_array{
-			int_array:30
-			int_array:40
-			int_array:690
-			int_array:984
+		param_float_array{
+			float_array:0.04
+			float_array:0.04
+			float_array:0.04
+			float_array:0.04
 		}
+	}
+	param_configs{
+		param_name:"EffectiveArea"
+		param_value:0.04
 	}
 }
 
@@ -202,7 +210,7 @@ operator_config{
 	operator_type:kPalmMotionPerceptionOperator
 	param_configs{
 		param_name:"MotionOffset"
-		param_value:16.0
+		param_value:0.032
 	}
 	need_model:false
 	enable:true
@@ -211,7 +219,7 @@ operator_config{
 operator_config{
 	operator_name:"PalmLivenessCenterOperator"
 	inference_name:"InferencePalmLivenessCenter"
-	model_name:"palm_ir_liveness"
+	model_name:"palm_liveness@ir_handantispoofing_croppedcenter_mbv4_exp230_211"
 	operator_type:kPalmLivenessOperator
 	need_model:true
 	enable:true
@@ -232,7 +240,28 @@ operator_config{
 operator_config{
 	operator_name:"PalmQualityOperator"
 	inference_name:"InferencePalmQuality128"
-	model_name:"palm_quality"
+	model_name:"palm_liveness@ir_handantispoofing_cropped128_ir_mbv4_w0.5_exp3_148"
+	operator_type:kPalmLivenessCropped128IrOperator
+	need_model:true
+	enable:true
+	param_configs{
+			param_name:"LivenessImgModal"
+			param_value:0
+	}
+	param_configs{
+			param_name:"LivenessModelChannel"
+			param_value:3
+	}
+	param_configs{
+			param_name:"InputChannel"
+			param_value:3
+	}
+}
+
+operator_config{
+	operator_name:"PalmQualityOperator"
+	inference_name:"InferencePalmQuality128"
+	model_name:"palm_quality@ir_baseline26_mnv4_exp15_eval79"
 	operator_type:kPalmQualityOperator
 	need_model:true
 	enable:true
@@ -241,7 +270,7 @@ operator_config{
 operator_config{
 	operator_name:"PalmQualityOperator"
 	inference_name:"InferencePalmQuality128"
-	model_name:"palm_quality_register"
+	model_name:"palm_quality_register@ir_baseline20_mnv4_exp16_eval102"
 	operator_type:kPalmRegisterQualityOperator
 	need_model:true
 	enable:true
@@ -250,16 +279,124 @@ operator_config{
 operator_config{
 	operator_name:"PalmQualityOperator"
 	inference_name:"InferencePalmQualityColorGray"
-	model_name:"palm_rgb_liveness"
+	model_name:"palm_liveness@rgb_color_gray_exp22_3662@wq5008"
 	operator_type:kPalmLivenessColorGrayOperator
 	need_model:true
 	enable:true
 }
 
 operator_config{
+	operator_name:"PalmLivenessNormedBiModalOperator"
+	inference_name:"InferencePalmLivenessNormedBiModal"
+	model_name:"palm_liveness@bimodal_normed_hand_antispoofing_exp40_192_dual_44+3_1.0_2daug_199"
+	operator_type:kPalmLivenessNormedBiModalOperator
+	need_model:true
+	enable:true
+	param_configs{
+		param_name:"LivenessImgModal"
+		param_value:2
+	}
+	param_configs{
+		param_name:"LivenessModelChannel"
+		param_value:4
+	}
+	param_configs{
+		param_name:"CropRatio"
+		param_value:1.0
+	}
+}
+
+operator_config{
+	operator_name:"PalmRegisterQualityNormedBiModalOperator"
+	inference_name:"InferencePalmRegisterQualityNormedBiModal"
+	model_name:"palm_quality@bimodal_normed_hand_register_quality_exp33_224_dual_44+3_0.5_v3curve_112"
+	operator_type:kPalmRegisterQualityNormedBiModalOperator
+	need_model:true
+	enable:true
+	param_configs{
+		param_name:"LivenessImgModal"
+		param_value:2
+	}
+	param_configs{
+		param_name:"LivenessModelChannel"
+		param_value:4
+	}
+	param_configs{
+		param_name:"CropRatio"
+		param_value:1.0
+	}
+}
+
+
+
+
+operator_config{
+	operator_name:"PalmRegisterQualityNormedBiModalOperator"
+	inference_name:"InferencePalmRegisterQualityNormedBiModal"
+	model_name:"palm_quality@bimodal_normed_hand_quality_exp31_224_dual_44+3_0.5_v3curve_71"
+	operator_type:kPalmQualityNormedBiModalOperator
+	need_model:true
+	enable:true
+	param_configs{
+		param_name:"LivenessImgModal"
+		param_value:2
+	}
+	param_configs{
+		param_name:"LivenessModelChannel"
+		param_value:4
+	}
+	param_configs{
+		param_name:"CropRatio"
+		param_value:1.0
+	}
+}
+
+operator_config{
+	operator_name:"PalmLivenessCroppedBiModalOperator"
+	inference_name:"InferencePalmLivenessCroppedBiModal"
+	model_name:"palm_liveness@bimodal_cropped_hand_antispoofing_exp41_96crop_dual_44+3_1.0_2daug_337"
+	operator_type:kPalmLivenessCroppedBiModalOperator
+	need_model:true
+	enable:true
+	param_configs{
+		param_name:"LivenessImgModal"
+		param_value:2
+	}
+	param_configs{
+		param_name:"LivenessModelChannel"
+		param_value:4
+	}
+	param_configs{
+		param_name:"CropRatio"
+		param_value:1.0
+	}
+}
+
+operator_config{
+	operator_name:"PalmLivenessCroppedCenterBiModalOperator"
+	inference_name:"InferencePalmLivenessCroppedCenterBiModal"
+	model_name:"palm_liveness@bimodal_croppedcenter_hand_antispoofing_exp42_48cropcenter_dual_44+3_1.0_2daug_434"
+	operator_type:kPalmLivenessCroppedCenterBiModalOperator
+	need_model:true
+	enable:true
+	param_configs{
+		param_name:"LivenessImgModal"
+		param_value:2
+	}
+	param_configs{
+		param_name:"LivenessModelChannel"
+		param_value:4
+	}
+	param_configs{
+		param_name:"CropRatio"
+		param_value:1.0
+	}
+}
+
+operator_config{
 	operator_name:"PalmQualityOperator"
 	inference_name:"InferencePalmReliability"
-	model_name:"palm_rgb_reliability"
+	model_name:"palm_reliability@rgb_baseline13_exp17_eval32"
 	operator_type:kPalmReliabilityRgbOperator
 	need_model:true
 	enable:true
@@ -268,7 +405,7 @@ operator_config{
 operator_config{
 	operator_name:"PalmQualityOperator"
 	inference_name:"InferencePalmReliability"
-	model_name:"palm_ir_reliability"
+	model_name:"palm_reliability@ir_baseline9_exp11_eval83"
 	operator_type:kPalmReliabilityIrOperator
 	need_model:true
 	enable:true
@@ -277,7 +414,7 @@ operator_config{
 operator_config{
 	operator_name:"PalmQualityOperator"
 	inference_name:"InferencePalmReliability"
-	model_name:"palm_rgb_register_reliability"
+	model_name:"palm_reliability_register@rgb_baseline5_exp5_eval71"
 	operator_type:kPalmRegisterReliabilityRgbOperator
 	need_model:true
 	enable:true
@@ -286,7 +423,7 @@ operator_config{
 operator_config{
 	operator_name:"PalmQualityOperator"
 	inference_name:"InferencePalmReliability"
-	model_name:"palm_ir_register_reliability"
+	model_name:"palm_reliability_register@ir_baseline3_exp4_eval106"
 	operator_type:kPalmRegisterReliabilityIrOperator
 	need_model:true
 	enable:true
@@ -302,14 +439,14 @@ operator_config{
 operator_config{
 	operator_name:"PalmRecognitionOperator"
 	inference_name:"InferencePalmRecognition"
-	model_name:"palmprint_ir_recognition@baseline15_exp23_eval151"
+	model_name:"palm_recognition@ir_mbf_exp5_draw@0.9851_0.7290@rank_0_eval_34_backbone"
 	operator_type:kPalmIrRecognitionOperator
 	need_model:true
 	need_latest_hash:true
 	enable:true
 	hash_configs{
 		hash_name:"IrLatestHash"
-		latest_hash:"palmprint_ir_recognition@baseline15_exp23_eval151"
+		latest_hash:"palm_recognition@ir_mbf_exp5_draw@0.9851_0.7290@rank_0_eval_34_backbone"
 	}
 	param_configs{
 		param_name:"RecognitionImgModal"
@@ -317,7 +454,7 @@ operator_config{
 	}
 	param_configs{
 		param_name:"RecognitionThreshold"
-		param_value:0.7072
+		param_value:0.7290
 	}
 }
 
@@ -331,14 +468,14 @@ operator_config{
 operator_config{
 	operator_name:"PalmRecognitionOperator"
 	inference_name:"InferencePalmRecognition"
-	model_name:"palmprint_rgb_recognition@baseline11_exp17_eval177"
+	model_name:"palm_recognition@rgb_mbf_exp6_draw@0.98728_0.75941@rank_0_eval_136_backbone"
 	operator_type:kPalmRgbRecognitionOperator
 	need_model:true
 	need_latest_hash:true
 	enable:true
 	hash_configs{
 		hash_name:"RgbLatestHash"
-		latest_hash:"palmprint_rgb_recognition@baseline11_exp17_eval177"
+		latest_hash:"palm_recognition@rgb_mbf_exp6_draw@0.98728_0.75941@rank_0_eval_136_backbone"
 	}
 	param_configs{
 		param_name:"RecognitionImgModal"
@@ -346,7 +483,7 @@ operator_config{
 	}
 	param_configs{
 		param_name:"RecognitionThreshold"
-		param_value:0.7253
+		param_value:0.7600
 	}
 	
 }
@@ -354,7 +491,7 @@ operator_config{
 operator_config{
 	operator_name:"PalmSkeletonOperator"
 	inference_name:"InferencePalmSkeleton"
-	model_name:"palm_kps"
+	model_name:"palman_kps@exp30_checkpoint_937"
 	operator_type:kPalmSkeletonOperator
 	need_model:true
 	enable:true
@@ -378,3 +515,130 @@ operator_config{
 	need_model:false
 	enable:true
 }
+
+operator_config{
+	operator_name:"PalmQualityOperator"
+	inference_name:"InferencePalmQuality128"
+	model_name:"palm_phone_quality_register@exp32_eval_1095_backbone"
+	operator_type:kPalmRegisterQualityPhoneRgbOperator
+	need_model:true
+	enable:true
+	param_configs{
+		param_name:"InputChannel"
+		param_value:3
+	}
+}
+operator_config{
+	operator_name:"PalmQualityOperator"
+	inference_name:"InferencePalmReliability"
+	model_name:"palm_phone_register_reliability@baseline26_eval_14"
+	operator_type:kPalmRegisterReliabilityPhoneRgbOperator
+	need_model:true
+	enable:true
+}
+
+operator_config{
+        operator_name:"PalmRegisterQualityCroppedBiModalOperator"
+        inference_name:"InferencePalmRegisterQualityCroppedBiModal"
+        model_name:"palm_quality@bimodal_cropped_hand_quality_exp10_128crop_dual_44+3_0.75_2daug_135"
+        operator_type:kPalmRegisterQualityCroppedBiModalOperator
+        need_model:true
+        enable:true
+        param_configs{
+                param_name:"LivenessImgModal"
+                param_value:2
+        }
+        param_configs{
+                param_name:"LivenessModelChannel"
+                param_value:4
+        }
+        param_configs{
+                param_name:"CropRatio"
+                param_value:1.0
+        }
+}
+
+operator_config{
+	operator_name:"PalmQualityOperator"
+	inference_name:"InferencePalmQuality128"
+	model_name:"palm_quality@rgb_normed_hand_register_quality_exp1_224_dual_44+3_0.5_v3curve_mixup_75"
+	operator_type:kPalmRegisterQualityNormedRGBOperator
+	need_model:true
+	enable:true
+	param_configs{
+		param_name:"InputChannel"
+		param_value:3
+	}
+}
+
+
+operator_config{
+	operator_name:"PalmRegisterQualityNormedBiModalOperator"
+	inference_name:"InferencePalmRegisterQualityNormedBiModal"
+	model_name:"palm_draw@bimodal_normed_hand_register_draw_exp10_224_dual_44+3_0.5_v3curve_bimodal_15"
+	operator_type:kPalmRegisterDrawNormedBiModalOperator
+	need_model:true
+	enable:true
+	param_configs{
+		param_name:"LivenessImgModal"
+		param_value:2
+	}
+	param_configs{
+		param_name:"LivenessModelChannel"
+		param_value:4
+	}
+	param_configs{
+		param_name:"CropRatio"
+		param_value:1.0
+	}
+}
+
+operator_config{
+	operator_name:"PalmQualityOperator"
+	inference_name:"InferencePalmQuality128"
+	model_name:"palm_draw@rgb_normed_hand_register_draw_exp11_224_dual_44+3_0.5_v3curve_RGB_34"
+	operator_type:kPalmRegisterDrawNormedRGBOperator
+	need_model:true
+	enable:true
+	param_configs{
+		param_name:"InputChannel"
+		param_value:3
+	}
+}
+
+
+operator_config{
+	operator_name:"PalmQualityOperator"
+	inference_name:"InferencePalmQuality128"
+	model_name:"palm_draw@rgb_normed_center_hand_register_draw_exp46_224_dual_44+3_0.5_v3curve_RGB_center_48"
+	operator_type:kPalmRegisterDrawNormedCenterRGBOperator
+	need_model:true
+	enable:true
+	param_configs{
+		param_name:"InputChannel"
+		param_value:3
+	}
+}
+
+
+operator_config{
+	operator_name:"PalmRegisterQualityNormedBiModalOperator"
+	inference_name:"InferencePalmRegisterQualityNormedBiModal"
+	model_name:"palm_draw@bimodal_normed_center_hand_register_draw_exp43_3_224_dual_44+3_0.5_v3curve_bimodal_center_165"
+	operator_type:kPalmRegisterDrawNormedCenterBiModalOperator
+	need_model:true
+	enable:true
+	param_configs{
+		param_name:"LivenessImgModal"
+		param_value:2
+	}
+	param_configs{
+		param_name:"LivenessModelChannel"
+		param_value:4
+	}
+	param_configs{
+		param_name:"CropRatio"
+		param_value:1.0
+	}
+}
+

@@ -53,6 +53,7 @@ import com.api.stream.bean.CaptureFrame
 import com.api.stream.bean.ExtraFrameInfo
 import com.api.stream.bean.ImageInstance
 import com.api.stream.enumclass.Hint
+import com.api.stream.enumclass.RecognizeMode
 import com.api.stream.manager.DtUsbDevice
 import com.api.stream.manager.DtUsbManager.DeviceStateListener
 import com.api.stream.manager.UsbMapTable
@@ -152,6 +153,8 @@ open class RecognitionActivity : AppCompatActivity(), RecognitionView, SearchAda
     private var mPalmCache: MutableList<Palm> = ArrayList()
 
     enum class WorkMode { NONE, REGISTER, RECOGNIZE }
+
+    private val mode = RecognizeMode.kBiModal
 
     @Volatile
     private var mCurrentWorkMode = WorkMode.NONE
@@ -1239,7 +1242,7 @@ open class RecognitionActivity : AppCompatActivity(), RecognitionView, SearchAda
                 val res = (mDevice as IVeinshine).compareFeatureScore(compRgb,
                     compIr,
                     ext.rgbFeature,
-                    ext.irFeature)
+                    ext.irFeature, mode)
                 if (res.irScore > 0.75) {
                     if (candidate.childId != currentChildId) {
                         val studentMatched = databaseHandler.getStudentByRegNo(candidate.childRegNo)
@@ -1499,7 +1502,7 @@ open class RecognitionActivity : AppCompatActivity(), RecognitionView, SearchAda
         matchPool.execute {
             if (mDevice != null) {
                 algoStatus = EnableAlgorithmStatus.INITIALIZING
-                if ((mDevice as IVeinshine).enableDimPalm(modelPath) == 0) {
+                if ((mDevice as IVeinshine).enableDimPalm(modelPath, mode) == 0) {
                     algoStatus = EnableAlgorithmStatus.ENABLE
 //                    showToast("Algorithm Ready")
 
@@ -1589,7 +1592,7 @@ open class RecognitionActivity : AppCompatActivity(), RecognitionView, SearchAda
                 val res = device.compareFeatureScore(candidateRgb,
                     candidateIr,
                     live.rgbFeature,
-                    live.irFeature)
+                    live.irFeature, mode)
 
                 if (res.irScore > 0.75 && res.irScore > maxScore) {
                     maxScore = res.irScore
@@ -1852,6 +1855,10 @@ open class RecognitionActivity : AppCompatActivity(), RecognitionView, SearchAda
                     }
                 }
             }
+        }
+
+        override fun onCapturePalmQualityPass() {
+
         }
     }
 

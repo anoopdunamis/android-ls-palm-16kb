@@ -1,6 +1,6 @@
-model_path : "./palm_models_1.3.5.bin"
+model_path : "./palm_edge_2.0.4_tnn.pbz"
 compute_configs {
-    model_name: "palm_ae_detection"
+    model_name: "palm_detection@baseline9_yolox_100m_relu_exp21_eval127"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -9,7 +9,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_regression"
+    model_name: "palm_regression@baseline4_mnv4_nano_exp4_eval404"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -18,7 +18,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_kps"
+    model_name: "palman_kps@exp30_checkpoint_937"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -28,7 +28,7 @@ compute_configs {
 }
 
 compute_configs {
-    model_name: "palm_rgb_liveness"
+    model_name: "palm_liveness@rgb_color_gray_exp22_3662@wq5008"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -37,7 +37,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_rgb_reliability"
+    model_name: "palm_reliability@rgb_baseline13_exp17_eval32"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -46,7 +46,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_rgb_register_reliability"
+    model_name: "palm_reliability_register@rgb_baseline5_exp5_eval71"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -55,7 +55,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_phone_register_quality@baseline5_eval_283_backbone"
+    model_name: "palm_phone_quality_register@exp32_eval_1095_backbone"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -64,7 +64,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palm_phone_register_reliablity@baseline6_epoch_266_312000_312"
+    model_name: "palm_phone_register_reliability@baseline26_eval_14"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0
@@ -73,7 +73,7 @@ compute_configs {
     cpu_list: 3
 }
 compute_configs {
-    model_name: "palmprint_rgb_recognition@baseline11_exp17_eval177"
+    model_name: "palm_recognition@rgb_mbf_exp6_draw@0.98728_0.75941@rank_0_eval_136_backbone"
     device_type: DeviceArm
     thread_num: 4
     cpu_list: 0

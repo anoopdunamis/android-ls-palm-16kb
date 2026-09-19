@@ -141,12 +141,13 @@
                     android:layout_gravity="center"
                     android:src="@drawable/lokatestudent_straight_logo" />
 
-                <Button
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/blue"
+                    android:background="@color/theme_yellow"
                     android:fontFamily="@font/montserrat_semi_bold"
                     android:gravity="center"
+                    android:padding="10dp"
                     android:text="@string/app_name"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
