@@ -2774,7 +2774,8 @@ open class RecognitionActivity : AppCompatActivity(), RecognitionView, SearchAda
                 NdefReaderTask(c).execute(tag)
             } else {
 
-                kotlinStatic.invalidCard(mNfcAdapter)
+//                kotlinStatic.invalidCard(mNfcAdapter)
+                kotlinStatic.goBackDisabledDialog(resources.getString(R.string.invalid_card))
             }
         } else if (NfcAdapter.ACTION_TECH_DISCOVERED.equals(action, ignoreCase = true)) {
 
@@ -2795,7 +2796,8 @@ open class RecognitionActivity : AppCompatActivity(), RecognitionView, SearchAda
                 NdefReaderTask(c).execute(tag)
             } else {
 
-                kotlinStatic.invalidCard(mNfcAdapter)
+//                kotlinStatic.invalidCard(mNfcAdapter)
+                kotlinStatic.goBackDisabledDialog(resources.getString(R.string.invalid_card))
             }
         }
     }
